@@ -121,7 +121,7 @@ export const Dashboard = ({ creator, digitalTwin }) => {
       />
 
       {/* Health Score & Digital Twin Capsule */}
-      <div className="grid-2" style={{ marginBottom: '24px' }}>
+      <div className="grid-2 stagger-container" style={{ marginBottom: '24px' }}>
         <HealthScoreCard
           score={creator?.healthScore || 94}
           status={creator?.healthStatus || 'Optimal Growth'}
@@ -133,7 +133,7 @@ export const Dashboard = ({ creator, digitalTwin }) => {
         />
 
         <div
-          className="card"
+          className="card card-lift stagger-item"
           style={{
             background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.08) 100%)',
             borderColor: 'rgba(99, 102, 241, 0.3)',
@@ -195,7 +195,7 @@ export const Dashboard = ({ creator, digitalTwin }) => {
       </div>
 
       {/* Stats Grid: Followers, Engagement, Total Posts, Average Views */}
-      <div className="grid-3" style={{ marginBottom: '28px' }}>
+      <div className="grid-3 stagger-container" style={{ marginBottom: '28px' }}>
         <StatCard
           title="Followers"
           value={creator?.followersCount ? `${(creator.followersCount / 1000).toFixed(1)}K` : '86.4K'}
@@ -227,7 +227,7 @@ export const Dashboard = ({ creator, digitalTwin }) => {
       </div>
 
       {/* AI Recommendation: "WHAT SHOULD YOU CREATE NEXT?" */}
-      <div style={{ marginBottom: '32px' }}>
+      <div className="animate-fade-in-up" style={{ marginBottom: '32px' }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
           <div>
             <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#818cf8', fontWeight: 800 }}>
@@ -258,9 +258,9 @@ export const Dashboard = ({ creator, digitalTwin }) => {
       </div>
 
       {/* Performance Chart & Recent Content */}
-      <div className="grid-2">
+      <div className="grid-2 stagger-container">
         {/* Performance Chart */}
-        <div className="card">
+        <div className="card card-lift stagger-item">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
             <div>
               <h3 style={{ fontSize: '16px', fontWeight: 700 }}>Performance Over Time</h3>
@@ -303,7 +303,7 @@ export const Dashboard = ({ creator, digitalTwin }) => {
         </div>
 
         {/* Recent Content */}
-        <div className="card">
+        <div className="card card-lift stagger-item">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px' }}>
             <div>
               <h3 style={{ fontSize: '16px', fontWeight: 700 }}>Recent Content</h3>

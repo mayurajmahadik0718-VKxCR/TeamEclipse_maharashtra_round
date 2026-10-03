@@ -60,6 +60,7 @@ export const SignupPage = () => {
       }}
     >
       <div
+        className="ambient-glow"
         style={{
           position: 'absolute',
           top: '20%',
@@ -67,20 +68,20 @@ export const SignupPage = () => {
           transform: 'translateX(-50%)',
           width: '500px',
           height: '400px',
-          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
 
       <div
-        className="card"
+        className="card card-lift animate-fade-in-up"
         style={{
           width: '100%',
           maxWidth: '500px',
           padding: '36px 32px',
           backgroundColor: '#121727',
           border: '1px solid #232e4a',
-          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.6)',
+          boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.6), 0 0 30px rgba(168, 85, 247, 0.1)',
           borderRadius: '16px',
           position: 'relative',
           zIndex: 10,

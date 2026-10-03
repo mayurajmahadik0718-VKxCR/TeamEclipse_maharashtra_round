@@ -112,7 +112,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
 
       {/* AI Summary Banner */}
       <div
-        className="card"
+        className="card card-lift animate-fade-in-up"
         style={{
           background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%)',
           borderColor: 'rgba(99, 102, 241, 0.35)',

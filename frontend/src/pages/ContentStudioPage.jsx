@@ -185,7 +185,7 @@ export const ContentStudioPage = ({ creator, digitalTwin }) => {
       />
 
       {/* Top Configuration Bar: Opportunity & Platform Selection */}
-      <div className="card" style={{ marginBottom: '24px' }}>
+      <div className="card card-lift animate-fade-in-up" style={{ marginBottom: '24px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '16px' }}>
           <div>
             <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '6px' }}>
@@ -272,7 +272,7 @@ export const ContentStudioPage = ({ creator, digitalTwin }) => {
       </div>
 
       {/* Studio Workspace: Tabs & Editable Cards */}
-      <div className="card">
+      <div className="card animate-fade-in-up">
         {/* Platform Tabs Header */}
         <div className="tabs-container">
           {selectedPlatforms.map((platId) => {

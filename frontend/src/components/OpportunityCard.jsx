@@ -12,22 +12,13 @@ export const OpportunityCard = ({
 
   return (
     <div
-      className="card"
+      className="card card-lift stagger-item"
       style={{
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
-        transition: 'transform 0.2s, border-color 0.2s, box-shadow 0.2s',
         position: 'relative',
         background: 'linear-gradient(180deg, #182032 0%, #131929 100%)',
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.transform = 'translateY(-2px)';
-        e.currentTarget.style.borderColor = 'rgba(99, 102, 241, 0.4)';
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.transform = 'translateY(0)';
-        e.currentTarget.style.borderColor = 'var(--border-color)';
       }}
     >
       <div>

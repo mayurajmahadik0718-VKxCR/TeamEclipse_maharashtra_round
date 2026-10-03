@@ -164,7 +164,7 @@ export const SettingsPage = ({ creator, digitalTwin, onRefresh }) => {
         </button>
       </div>
 
-      <div className="card">
+      <div className="card card-lift animate-fade-in-up">
         <form onSubmit={handleSaveSettings} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {/* Profile Tab */}
           {activeTab === 'profile' && (

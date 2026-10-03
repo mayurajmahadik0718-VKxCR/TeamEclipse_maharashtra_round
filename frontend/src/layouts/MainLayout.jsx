@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 
 export const MainLayout = ({ creator, onSelectCreator, currentCreatorId }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className="app-container">
@@ -20,7 +21,9 @@ export const MainLayout = ({ creator, onSelectCreator, currentCreatorId }) => {
           onToggleMobileSidebar={() => setIsMobileOpen(!isMobileOpen)}
         />
         <main className="page-body">
-          <Outlet />
+          <div key={location.pathname} className="page-transition-enter">
+            <Outlet />
+          </div>
         </main>
       </div>
     </div>

@@ -52,6 +52,7 @@ export const Navbar = ({ creator, onSelectCreator, currentCreatorId, onToggleMob
           }}
         >
           <span
+            className={backendStatus === 'connected' ? 'live-pulse-dot' : ''}
             style={{
               width: '8px',
               height: '8px',

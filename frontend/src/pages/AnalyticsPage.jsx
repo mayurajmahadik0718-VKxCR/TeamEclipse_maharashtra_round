@@ -121,6 +121,7 @@ export const AnalyticsPage = ({ creator }) => {
         <>
           {/* 6 Stats Cards: Views, Likes, Comments, Shares, Followers, Engagement Rate */}
           <div
+            className="stagger-container"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',

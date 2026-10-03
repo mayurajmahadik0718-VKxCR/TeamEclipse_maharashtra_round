@@ -2,20 +2,24 @@ import React from 'react';
 
 export const StatCard = ({ title, value, change, icon: Icon, note }) => {
   return (
-    <div className="card">
+    <div className="card card-lift stagger-item">
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
         <span style={{ fontSize: '13px', color: 'var(--text-secondary)', fontWeight: 500 }}>{title}</span>
         {Icon && (
-          <div style={{
-            width: '36px',
-            height: '36px',
-            borderRadius: '8px',
-            backgroundColor: 'rgba(99, 102, 241, 0.1)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: 'var(--primary)',
-          }}>
+          <div
+            className="stat-icon-wrapper"
+            style={{
+              width: '36px',
+              height: '36px',
+              borderRadius: '8px',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: 'var(--primary)',
+              transition: 'transform 0.2s ease, background-color 0.2s ease',
+            }}
+          >
             <Icon size={18} />
           </div>
         )}

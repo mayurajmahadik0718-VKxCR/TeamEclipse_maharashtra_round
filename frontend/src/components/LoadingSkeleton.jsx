@@ -9,10 +9,12 @@ export const LoadingSkeleton = ({ count = 3, height = '80px', className = '' }) 
           className="card"
           style={{
             height,
-            backgroundColor: 'rgba(24, 32, 50, 0.4)',
+            backgroundColor: 'rgba(24, 32, 50, 0.45)',
             borderColor: 'rgba(35, 46, 72, 0.5)',
             position: 'relative',
             overflow: 'hidden',
+            animation: 'skeleton-pulse 2.2s ease-in-out infinite',
+            animationDelay: `${i * 120}ms`,
           }}
         >
           <div
@@ -20,8 +22,8 @@ export const LoadingSkeleton = ({ count = 3, height = '80px', className = '' }) 
               position: 'absolute',
               inset: 0,
               background:
-                'linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.08), transparent)',
-              animation: 'skeleton-shimmer 1.8s infinite',
+                'linear-gradient(90deg, transparent 0%, rgba(99, 102, 241, 0.12) 50%, transparent 100%)',
+              animation: 'skeleton-shimmer 1.8s infinite ease-in-out',
             }}
           />
         </div>

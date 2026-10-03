@@ -68,9 +68,9 @@ export const ContentAnalyzerPage = ({ creator }) => {
         }
       />
 
-      <div className="grid-2" style={{ alignItems: 'start', marginBottom: '32px' }}>
+      <div className="grid-2 stagger-container" style={{ alignItems: 'start', marginBottom: '32px' }}>
         {/* Input Form Panel */}
-        <div className="card">
+        <div className="card card-lift stagger-item">
           <h3 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}>
             <Search size={18} color="var(--primary)" /> Input Content Draft
           </h3>

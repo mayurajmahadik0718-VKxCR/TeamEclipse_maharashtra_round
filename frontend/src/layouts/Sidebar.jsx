@@ -142,20 +142,13 @@ export const Sidebar = ({ isMobileOpen, onCloseMobile }) => {
                     key={item.path}
                     to={item.path}
                     onClick={() => onCloseMobile && onCloseMobile()}
+                    className={({ isActive }) => `sidebar-link ${isActive ? 'active' : ''}`}
                     style={({ isActive }) => ({
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '8px 12px',
-                      borderRadius: '8px',
-                      fontSize: '13px',
-                      fontWeight: isActive ? 600 : 500,
                       color: isActive ? '#ffffff' : 'var(--text-secondary)',
                       backgroundColor: isActive ? 'rgba(99, 102, 241, 0.15)' : 'transparent',
                       border: isActive
                         ? '1px solid rgba(99, 102, 241, 0.35)'
                         : '1px solid transparent',
-                      transition: 'all 0.15s ease-in-out',
                     })}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>

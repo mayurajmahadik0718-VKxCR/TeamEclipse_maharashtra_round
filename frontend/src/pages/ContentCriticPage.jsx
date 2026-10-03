@@ -109,10 +109,10 @@ export const ContentCriticPage = ({ creator }) => {
           </p>
         </div>
       ) : criticData ? (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+        <div className="animate-fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           {/* Top Score Matrix Banner */}
           <div
-            className="card"
+            className="card card-lift"
             style={{
               background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.95) 0%, rgba(17, 23, 38, 0.9) 100%)',
               border: '1px solid #2a3756',
@@ -146,6 +146,7 @@ export const ContentCriticPage = ({ creator }) => {
 
             {/* Score Breakdown Bar */}
             <div
+              className="stagger-container"
               style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',

@@ -1,25 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 
 export const Modal = ({ isOpen, onClose, title, children, maxWidth = '650px' }) => {
+  const [mounted, setMounted] = useState(isOpen);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setMounted(true);
+      setIsClosing(false);
+      document.body.style.overflow = 'hidden';
+    } else if (mounted) {
+      setIsClosing(true);
+      const timer = setTimeout(() => {
+        setMounted(false);
+        setIsClosing(false);
+        document.body.style.overflow = 'auto';
+      }, 180);
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') onClose();
     };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
+    if (mounted) {
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => {
-      document.body.style.overflow = 'auto';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, onClose]);
+  }, [mounted, onClose]);
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
+  if (!mounted) return null;
 
   return (
     <div
+      className={isClosing ? 'modal-backdrop-animating-out' : 'modal-backdrop-animating-in'}
       style={{
         position: 'fixed',
         inset: 0,
@@ -34,7 +58,7 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = '650px' }) 
       onClick={onClose}
     >
       <div
-        className="card"
+        className={`card ${isClosing ? 'modal-content-animating-out' : 'modal-content-animating-in'}`}
         style={{
           width: '100%',
           maxWidth,
@@ -42,7 +66,7 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = '650px' }) 
           overflowY: 'auto',
           backgroundColor: '#141b2d',
           border: '1px solid #283556',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7)',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(99, 102, 241, 0.15)',
           padding: '24px',
           borderRadius: '16px',
           position: 'relative',
@@ -72,15 +96,17 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = '650px' }) 
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              transition: 'color 0.2s, background 0.2s',
+              transition: 'color 0.2s, background 0.2s, transform 0.15s',
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.color = '#fff';
               e.currentTarget.style.background = 'rgba(255,255,255,0.1)';
+              e.currentTarget.style.transform = 'scale(1.1)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.color = 'var(--text-muted)';
               e.currentTarget.style.background = 'transparent';
+              e.currentTarget.style.transform = 'scale(1)';
             }}
           >
             <X size={20} />

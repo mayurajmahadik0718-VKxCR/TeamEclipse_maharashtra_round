@@ -30,6 +30,7 @@ export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
       </div>
 
       <div
+        className="stagger-container"
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
@@ -44,6 +45,7 @@ export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
           return (
             <div
               key={step.key}
+              className={`stagger-item ${isCurrent ? 'active-loop-stage' : ''}`}
               style={{
                 backgroundColor: isCurrent ? 'rgba(99, 102, 241, 0.15)' : 'rgba(10, 13, 20, 0.5)',
                 border: `1px solid ${isCurrent ? 'rgba(99, 102, 241, 0.6)' : 'var(--border-color)'}`,
@@ -52,8 +54,8 @@ export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',
-                boxShadow: isCurrent ? '0 0 15px rgba(99, 102, 241, 0.2)' : 'none',
                 position: 'relative',
+                transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

@@ -92,8 +92,9 @@ export const LandingPage = () => {
         </header>
 
         {/* Hero Section */}
-        <section style={{ padding: '80px 24px 60px 24px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+        <section className="animate-fade-in-up" style={{ padding: '80px 24px 60px 24px', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
           <div
+            className="ambient-glow"
             style={{
               position: 'absolute',
               top: '10%',
@@ -101,13 +102,13 @@ export const LandingPage = () => {
               transform: 'translateX(-50%)',
               width: '600px',
               height: '350px',
-              background: 'radial-gradient(ellipse, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+              background: 'radial-gradient(ellipse, rgba(99, 102, 241, 0.22) 0%, transparent 70%)',
               pointerEvents: 'none',
             }}
           />
 
           <div style={{ maxWidth: '860px', margin: '0 auto', position: 'relative' }}>
-            <div style={{ display: 'inline-flex', marginBottom: '20px' }}>
+            <div className="badge-glow" style={{ display: 'inline-flex', marginBottom: '20px', borderRadius: '9999px' }}>
               <Badge variant="cyan" style={{ padding: '6px 14px', fontSize: '13px' }}>
                 <Sparkles size={14} /> Introducing Creator Digital Twin v2.4
               </Badge>
@@ -176,8 +177,8 @@ export const LandingPage = () => {
             </h2>
           </div>
 
-          <div className="grid-3">
-            <div className="card" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+          <div className="grid-3 stagger-container">
+            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
               <div
                 style={{
                   width: '42px',
@@ -202,7 +203,7 @@ export const LandingPage = () => {
               </p>
             </div>
 
-            <div className="card" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
               <div
                 style={{
                   width: '42px',
@@ -227,7 +228,7 @@ export const LandingPage = () => {
               </p>
             </div>
 
-            <div className="card" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
               <div
                 style={{
                   width: '42px',

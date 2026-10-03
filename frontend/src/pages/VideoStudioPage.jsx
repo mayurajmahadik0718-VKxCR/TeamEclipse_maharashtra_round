@@ -115,7 +115,7 @@ export const VideoStudioPage = ({ creator }) => {
 
       {/* Content Workflow Pipeline Tracker (Idea -> Script -> Recording -> Editing -> Repurposing -> Publishing) */}
       <div
-        className="card"
+        className="card card-lift animate-fade-in-up"
         style={{
           marginBottom: '24px',
           background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.9) 0%, rgba(24, 32, 50, 0.8) 100%)',

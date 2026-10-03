@@ -71,6 +71,7 @@ export const LearningCenterPage = ({ creator }) => {
         <>
           {/* Top Analyzed Breakdown Cards */}
           <div
+            className="stagger-container"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
@@ -79,7 +80,7 @@ export const LearningCenterPage = ({ creator }) => {
             }}
           >
             {/* Posts Analyzed */}
-            <div className="card">
+            <div className="card card-lift stagger-item">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600 }}>Posts Analyzed</span>
                 <BookOpen size={16} color="var(--primary)" />
@@ -89,7 +90,7 @@ export const LearningCenterPage = ({ creator }) => {
             </div>
 
             {/* Interactions Analyzed */}
-            <div className="card">
+            <div className="card card-lift stagger-item">
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600 }}>Interactions Analyzed</span>
                 <Radio size={16} color="var(--accent-cyan)" />
@@ -99,7 +100,7 @@ export const LearningCenterPage = ({ creator }) => {
             </div>
 
             {/* Successful Content */}
-            <div className="card" style={{ borderLeft: '3px solid #10b981' }}>
+            <div className="card card-lift stagger-item" style={{ borderLeft: '3px solid #10b981' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600 }}>Successful Content</span>
                 <CheckCircle2 size={16} color="#34d399" />
@@ -109,7 +110,7 @@ export const LearningCenterPage = ({ creator }) => {
             </div>
 
             {/* Average Content */}
-            <div className="card" style={{ borderLeft: '3px solid #6366f1' }}>
+            <div className="card card-lift stagger-item" style={{ borderLeft: '3px solid #6366f1' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600 }}>Average Content</span>
                 <MinusCircle size={16} color="#818cf8" />
@@ -119,7 +120,7 @@ export const LearningCenterPage = ({ creator }) => {
             </div>
 
             {/* Underperforming Content */}
-            <div className="card" style={{ borderLeft: '3px solid #f43f5e' }}>
+            <div className="card card-lift stagger-item" style={{ borderLeft: '3px solid #f43f5e' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <span style={{ fontSize: '12px', color: 'var(--text-secondary)', fontWeight: 600 }}>Underperforming Content</span>
                 <AlertTriangle size={16} color="#fb7185" />
@@ -135,7 +136,7 @@ export const LearningCenterPage = ({ creator }) => {
           </div>
 
           {/* Detected Patterns Section */}
-          <div className="card" style={{ marginBottom: '28px' }}>
+          <div className="card card-lift animate-fade-in-up" style={{ marginBottom: '28px' }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', flexWrap: 'wrap', gap: '8px' }}>
               <div>
                 <h3 style={{ fontSize: '18px', fontWeight: 800 }}>Detected Audience Patterns</h3>

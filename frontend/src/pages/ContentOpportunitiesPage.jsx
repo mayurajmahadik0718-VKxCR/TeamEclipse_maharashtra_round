@@ -64,7 +64,7 @@ export const ContentOpportunitiesPage = ({ creator }) => {
       {loading ? (
         <LoadingSkeleton count={3} height="200px" />
       ) : opportunities.length > 0 ? (
-        <div className="grid-2" style={{ gap: '24px' }}>
+        <div className="grid-2 stagger-container" style={{ gap: '24px' }}>
           {opportunities.map((opp) => (
             <OpportunityCard
               key={opp.id}

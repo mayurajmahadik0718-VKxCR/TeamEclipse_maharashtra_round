@@ -13,7 +13,7 @@ export const HealthScoreCard = ({
 }) => {
   return (
     <div
-      className="card"
+      className="card card-lift stagger-item"
       style={{
         background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.9) 0%, rgba(17, 23, 38, 0.95) 100%)',
         border: '1px solid #2a3756',
@@ -22,6 +22,7 @@ export const HealthScoreCard = ({
       }}
     >
       <div
+        className="ambient-glow"
         style={{
           position: 'absolute',
           top: '-40px',
@@ -29,7 +30,7 @@ export const HealthScoreCard = ({
           width: '140px',
           height: '140px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.25) 0%, transparent 70%)',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, transparent 70%)',
           pointerEvents: 'none',
         }}
       />
