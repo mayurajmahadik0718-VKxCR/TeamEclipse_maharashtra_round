@@ -18,7 +18,7 @@ export const OpportunityCard = ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         position: 'relative',
-        background: 'linear-gradient(180deg, #182032 0%, #131929 100%)',
+        background: 'linear-gradient(180deg, rgba(24, 32, 50, 0.72) 0%, rgba(17, 23, 38, 0.8) 100%)',
       }}
     >
       <div>

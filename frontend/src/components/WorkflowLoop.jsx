@@ -15,8 +15,8 @@ export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
     <div
       className="card"
       style={{
-        background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.9) 0%, rgba(24, 32, 50, 0.8) 100%)',
-        border: '1px solid #2a3756',
+        background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.72) 0%, rgba(24, 32, 50, 0.68) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
         padding: '24px',
       }}
     >

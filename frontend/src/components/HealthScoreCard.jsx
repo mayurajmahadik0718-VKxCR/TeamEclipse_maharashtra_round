@@ -15,8 +15,8 @@ export const HealthScoreCard = ({
     <div
       className="card card-lift stagger-item"
       style={{
-        background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.9) 0%, rgba(17, 23, 38, 0.95) 100%)',
-        border: '1px solid #2a3756',
+        background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.75) 0%, rgba(17, 23, 38, 0.82) 100%)',
+        border: '1px solid rgba(255, 255, 255, 0.08)',
         position: 'relative',
         overflow: 'hidden',
       }}

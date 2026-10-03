@@ -1,9 +1,9 @@
 :root {
   --bg-primary: #0a0d14;
   --bg-secondary: #111726;
-  --bg-card: #182032;
-  --bg-card-hover: #1f2a42;
-  --border-color: #232e48;
+  --bg-card: rgba(22, 29, 46, 0.72);
+  --bg-card-hover: rgba(28, 38, 60, 0.82);
+  --border-color: rgba(255, 255, 255, 0.08);
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
@@ -24,6 +24,10 @@
   --duration-normal: 0.24s;
   --duration-moderate: 0.32s;
   --duration-slow: 0.48s;
+
+  /* Cursor parallax coordinate defaults */
+  --mouse-offset-x: 0px;
+  --mouse-offset-y: 0px;
 }
 
 * {
@@ -67,8 +71,10 @@ button {
 
 .sidebar {
   width: 260px;
-  background-color: var(--bg-secondary);
-  border-right: 1px solid var(--border-color);
+  background-color: rgba(17, 23, 38, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-right: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -85,9 +91,10 @@ button {
 
 .navbar {
   height: 64px;
-  border-bottom: 1px solid var(--border-color);
-  background-color: rgba(17, 23, 38, 0.85);
-  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background-color: rgba(14, 19, 32, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -162,31 +169,39 @@ button {
   animation: fadeInUp var(--duration-slow) var(--ease-spring) both;
 }
 
-/* Cards & Containers */
+/* Glassmorphism Cards & Containers */
 .card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  background: rgba(22, 29, 46, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
   padding: 20px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
   transition: transform var(--duration-normal) var(--ease-spring),
               border-color var(--duration-normal) ease,
-              box-shadow var(--duration-normal) ease;
+              box-shadow var(--duration-normal) ease,
+              background-color var(--duration-normal) ease;
 }
 
 .card:hover {
   border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(26, 35, 56, 0.78);
 }
 
 .card-lift {
   transition: transform var(--duration-normal) var(--ease-spring),
               border-color var(--duration-normal) ease,
-              box-shadow var(--duration-normal) ease;
+              box-shadow var(--duration-normal) ease,
+              background-color var(--duration-normal) ease;
 }
 
 .card-lift:hover {
   transform: translateY(-3px);
   border-color: rgba(99, 102, 241, 0.45);
-  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.55), 0 0 20px -4px rgba(99, 102, 241, 0.18);
+  box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.6), 
+              0 0 24px -4px rgba(99, 102, 241, 0.22),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 .card-lift:active {
@@ -196,6 +211,25 @@ button {
 .card-lift:hover .stat-icon-wrapper {
   transform: scale(1.08);
   background-color: rgba(99, 102, 241, 0.2) !important;
+}
+
+/* Elevated Frosted Glass Card */
+.glass-card-elevated {
+  background: linear-gradient(135deg, rgba(22, 29, 48, 0.82) 0%, rgba(16, 22, 36, 0.88) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(99, 102, 241, 0.28);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.75), 0 0 35px -5px rgba(99, 102, 241, 0.16), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+.glass-panel {
+  background: rgba(18, 24, 38, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
 }
 
 .grid-3 {
@@ -295,9 +329,11 @@ button {
 }
 
 .btn-secondary {
-  background: var(--bg-card);
+  background: rgba(24, 32, 50, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--text-primary);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 10px 18px;
   border-radius: 8px;
   font-weight: 500;
@@ -313,7 +349,7 @@ button {
 }
 
 .btn-secondary:hover {
-  background-color: var(--bg-card-hover);
+  background-color: rgba(31, 42, 66, 0.85);
   border-color: rgba(99, 102, 241, 0.35);
   transform: translateY(-1px);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
@@ -376,16 +412,19 @@ button {
   transform: scale(0.97);
 }
 
-/* Inputs */
+/* Frosted Glass Inputs */
 .input-field {
   width: 100%;
   padding: 10px 14px;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(13, 18, 30, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--text-primary);
   font-size: 14px;
   outline: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
   transition: border-color var(--duration-fast) ease,
               box-shadow var(--duration-fast) ease,
               background-color var(--duration-fast) ease;
@@ -393,15 +432,15 @@ button {
 
 .input-field:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-  background-color: rgba(17, 23, 38, 0.95);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.22), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  background-color: rgba(17, 23, 38, 0.9);
 }
 
 /* Tabs */
 .tabs-container {
   display: flex;
   gap: 8px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 20px;
   overflow-x: auto;
   padding-bottom: 4px;
@@ -468,9 +507,11 @@ button {
 .data-table-container {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  background-color: var(--bg-card);
+  background: rgba(22, 29, 46, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .data-table {
@@ -482,18 +523,18 @@ button {
 
 .data-table th {
   padding: 12px 16px;
-  background-color: rgba(17, 23, 38, 0.8);
+  background-color: rgba(14, 19, 32, 0.85);
   color: var(--text-muted);
   font-weight: 700;
   text-transform: uppercase;
   font-size: 11px;
   letter-spacing: 0.05em;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .data-table td {
   padding: 14px 16px;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
   transition: background-color var(--duration-fast) ease;
 }
@@ -643,6 +684,98 @@ button {
   animation: modalContentExit 0.18s ease-in forwards;
 }
 
+/* Floating Ambient Elements & Background Parallax */
+@keyframes floatSlow1 {
+  0%, 100% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * 0.4), calc(var(--mouse-offset-y, 0px) * 0.4), 0) translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * 0.4), calc(var(--mouse-offset-y, 0px) * 0.4), 0) translateY(-14px) rotate(1.4deg);
+  }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * -0.35), calc(var(--mouse-offset-y, 0px) * -0.35), 0) translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * -0.35), calc(var(--mouse-offset-y, 0px) * -0.35), 0) translateY(13px) rotate(-1.5deg);
+  }
+}
+
+@keyframes floatSlow3 {
+  0%, 100% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * 0.25), calc(var(--mouse-offset-y, 0px) * 0.25), 0) translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(calc(var(--mouse-offset-x, 0px) * 0.25), calc(var(--mouse-offset-y, 0px) * 0.25), 0) translateY(-10px) rotate(1deg);
+  }
+}
+
+.floating-chip {
+  position: absolute;
+  background: rgba(20, 27, 44, 0.68);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #f1f5f9;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 18px rgba(99, 102, 241, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+  user-select: none;
+  z-index: 2;
+  will-change: transform;
+}
+
+.float-anim-1 {
+  animation: floatSlow1 7s ease-in-out infinite;
+}
+.float-anim-2 {
+  animation: floatSlow2 8.5s ease-in-out infinite;
+}
+.float-anim-3 {
+  animation: floatSlow3 6.2s ease-in-out infinite;
+}
+
+/* Split-screen login layout */
+.login-split-layout {
+  display: grid;
+  grid-template-columns: 1.15fr 0.92fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 1024px) {
+  .login-split-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 860px) {
+  .login-split-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 480px;
+    padding: 0 12px;
+  }
+  .floating-chip {
+    display: none !important;
+  }
+}
+
 /* Spline 3D Background & Custom Cursor */
 .spline-bg-container {
   position: fixed;
@@ -657,6 +790,7 @@ button {
 }
 
 @media (pointer: coarse), (max-width: 767px) {
+  .custom-cursor-glow,
   .custom-cursor-ring,
   .custom-cursor-dot {
     display: none !important;
@@ -671,7 +805,7 @@ button {
   .sidebar {
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
   .sidebar.mobile-hidden {
     display: none;
@@ -737,9 +871,17 @@ button {
   .modal-backdrop-animating-in,
   .modal-backdrop-animating-out,
   .modal-content-animating-in,
-  .modal-content-animating-out {
+  .modal-content-animating-out,
+  .float-anim-1,
+  .float-anim-2,
+  .float-anim-3 {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+  .custom-cursor-glow,
+  .custom-cursor-ring,
+  .custom-cursor-dot {
+    display: none !important;
   }
 }

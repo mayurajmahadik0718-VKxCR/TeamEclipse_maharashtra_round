@@ -5,6 +5,7 @@ import { useCreator } from './hooks/useCreator';
 
 // Layout
 import MainLayout from './layouts/MainLayout';
+import CustomCursor from './components/CustomCursor';
 
 // Public Pages
 import LandingPage from './pages/LandingPage';
@@ -88,6 +89,7 @@ export function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+        <CustomCursor />
         <AppContent />
       </BrowserRouter>
     </AuthProvider>

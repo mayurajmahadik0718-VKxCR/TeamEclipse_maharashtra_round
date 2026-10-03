@@ -118,8 +118,8 @@ export const VideoStudioPage = ({ creator }) => {
         className="card card-lift animate-fade-in-up"
         style={{
           marginBottom: '24px',
-          background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.9) 0%, rgba(24, 32, 50, 0.8) 100%)',
-          border: '1px solid #2a3756',
+          background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.72) 0%, rgba(24, 32, 50, 0.68) 100%)',
+          border: '1px solid rgba(255, 255, 255, 0.08)',
         }}
       >
         <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--text-muted)', fontWeight: 700 }}>

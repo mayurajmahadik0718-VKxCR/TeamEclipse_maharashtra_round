@@ -114,8 +114,8 @@ export const ContentCriticPage = ({ creator }) => {
           <div
             className="card card-lift"
             style={{
-              background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.95) 0%, rgba(17, 23, 38, 0.9) 100%)',
-              border: '1px solid #2a3756',
+              background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.75) 0%, rgba(17, 23, 38, 0.82) 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '18px', flexWrap: 'wrap', gap: '10px' }}>

@@ -58,17 +58,13 @@ export const Modal = ({ isOpen, onClose, title, children, maxWidth = '650px' }) 
       onClick={onClose}
     >
       <div
-        className={`card ${isClosing ? 'modal-content-animating-out' : 'modal-content-animating-in'}`}
+        className={`glass-card-elevated ${isClosing ? 'modal-content-animating-out' : 'modal-content-animating-in'}`}
         style={{
           width: '100%',
           maxWidth,
           maxHeight: '90vh',
           overflowY: 'auto',
-          backgroundColor: '#141b2d',
-          border: '1px solid #283556',
-          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(99, 102, 241, 0.15)',
-          padding: '24px',
-          borderRadius: '16px',
+          padding: '26px',
           position: 'relative',
         }}
         onClick={(e) => e.stopPropagation()}

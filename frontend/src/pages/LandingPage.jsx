@@ -17,7 +17,6 @@ import {
 import Badge from '../components/Badge';
 import WorkflowLoop from '../components/WorkflowLoop';
 import SplineBackground from '../components/SplineBackground';
-import CustomCursor from '../components/CustomCursor';
 
 export const LandingPage = () => {
   return (
@@ -32,9 +31,6 @@ export const LandingPage = () => {
     >
       {/* Spline 3D Scene Background (Behind UI, non-blocking) */}
       <SplineBackground />
-
-      {/* Desktop-only subtle rounded custom cursor */}
-      <CustomCursor />
 
       {/* Foreground Interactive UI Content */}
       <div style={{ position: 'relative', zIndex: 1 }}>
