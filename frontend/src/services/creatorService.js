@@ -3,6 +3,7 @@
 
 import { MOCK_CREATORS, MOCK_DIGITAL_TWINS } from './mockData';
 import apiClient from './api';
+import { aiService } from './aiService';
 
 const USE_MOCK_DATA = true;
 
@@ -83,8 +84,11 @@ export const creatorService = {
       MOCK_DIGITAL_TWINS[creatorId] = updated;
       return { success: true, data: updated, message: 'Creator Digital Twin successfully calibrated' };
     }
-    const res = await apiClient.put(`/creators/${creatorId}/digital-twin`, twinData);
-    return res.data;
+    return aiService.createCreatorTwin({
+      creatorId,
+      creatorProfile: twinData,
+      goals: twinData.goal ? [twinData.goal] : [],
+    });
   },
 };
 
