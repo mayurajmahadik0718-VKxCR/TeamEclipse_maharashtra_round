@@ -17,7 +17,6 @@ import {
   BookOpen,
   Sliders,
 } from 'lucide-react';
-import { creatorService } from '../services/creatorService';
 import { aiService } from '../services/aiService';
 
 export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
@@ -40,17 +39,22 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
     setFeedbackMessage(null);
 
     try {
-      const res = await creatorService.updateDigitalTwin(creator?.id || 'creator_001', {
-        tone: {
-          primary: toneInput,
-          attributes: digitalTwin?.tone?.attributes || ['practical', 'encouraging'],
+      const res = await aiService.createCreatorTwin({
+        creatorId: creator?.id || 'creator_001',
+        creatorProfile: {
+          ...creator,
+          tone: toneInput,
+          contentStyle: {
+            ...digitalTwin?.contentStyle,
+            pacing: pacingInput,
+          },
         },
-        goal: goalInput,
-        contentStyle: {
-          ...digitalTwin?.contentStyle,
-          pacing: pacingInput,
-        },
+        goals: [goalInput],
       });
+
+      if (!res?.success) {
+        throw new Error(res?.error?.message || 'Failed to re-calibrate the Digital Twin.');
+      }
 
       setFeedbackMessage('Creator Digital Twin successfully re-calibrated & synced!');
       setTimeout(() => {

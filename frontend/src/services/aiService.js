@@ -12,7 +12,46 @@ import {
 } from './mockData';
 import apiClient from './api';
 
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA !== 'false';
+
+const getImprovedVersion = (improvedContent = '') => {
+  const hook = improvedContent
+    .replace(/^\[HOOK[^\]]*\]\s*/i, '')
+    .split('\n')
+    .find((line) => line.trim())
+    ?.trim() || improvedContent;
+  const ctaMatch = improvedContent.match(/\[CTA[^\]]*\]\s*([\s\S]*)$/i);
+
+  return {
+    hook,
+    script: improvedContent,
+    cta: ctaMatch?.[1]?.trim() || '',
+  };
+};
+
+const normalizeAnalyzerResult = (data, { platform, contentType }) => ({
+  ...data,
+  overallScore: data.score,
+  clarity: data.clarityScore,
+  cta: data.ctaScore,
+  originality: data.originalityScore,
+  analyzedPlatform: data.analyzedPlatform || platform,
+  analyzedType: data.analyzedType || contentType,
+});
+
+const normalizeCriticResult = (data) => ({
+  ...data,
+  hook: data.hookScore,
+  clarity: data.clarityScore,
+  cta: data.ctaScore,
+  improvedVersion: getImprovedVersion(data.improvedContent),
+});
+
+const normalizeOpportunities = (opportunities) => opportunities.map((opportunity) => ({
+  ...opportunity,
+  platform: opportunity.platform || opportunity.recommendedPlatform,
+  format: opportunity.format || opportunity.recommendedFormat,
+}));
 
 export const aiService = {
   // Create / Calibrate Creator Digital Twin
@@ -51,7 +90,12 @@ export const aiService = {
       };
     }
     const res = await apiClient.post('/ai/analyze', { content, platform, contentType });
-    return res.data;
+    return {
+      ...res.data,
+      data: res.data?.success
+        ? normalizeAnalyzerResult(res.data.data, { platform, contentType })
+        : res.data?.data,
+    };
   },
 
   // Generate opportunity recommendations ("What Should You Create Next?")
@@ -64,7 +108,10 @@ export const aiService = {
       };
     }
     const res = await apiClient.post('/ai/opportunities/generate', { creatorId });
-    return res.data;
+    return {
+      ...res.data,
+      data: res.data?.success ? normalizeOpportunities(res.data.data) : res.data?.data,
+    };
   },
 
   // Generate complete cross-platform campaign
@@ -99,7 +146,10 @@ export const aiService = {
       };
     }
     const res = await apiClient.post('/ai/critic', contentPayload);
-    return res.data;
+    return {
+      ...res.data,
+      data: res.data?.success ? normalizeCriticResult(res.data.data) : res.data?.data,
+    };
   },
 
   // Learn from performance & return learning metrics, detected patterns, workflow loop

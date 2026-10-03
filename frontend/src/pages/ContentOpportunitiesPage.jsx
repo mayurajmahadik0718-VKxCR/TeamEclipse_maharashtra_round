@@ -7,7 +7,7 @@ import Modal from '../components/Modal';
 import LoadingSkeleton from '../components/LoadingSkeleton';
 import EmptyState from '../components/EmptyState';
 import { Lightbulb, Sparkles, BrainCircuit, RefreshCw } from 'lucide-react';
-import { opportunityService } from '../services/opportunityService';
+import { aiService } from '../services/aiService';
 
 export const ContentOpportunitiesPage = ({ creator }) => {
   const [opportunities, setOpportunities] = useState([]);
@@ -21,7 +21,7 @@ export const ContentOpportunitiesPage = ({ creator }) => {
     setLoading(true);
     setError(null);
     try {
-      const res = await opportunityService.getOpportunities(creator?.id || 'creator_001');
+      const res = await aiService.generateOpportunities(creator?.id || 'creator_001');
       if (res?.data) {
         setOpportunities(res.data);
       }

@@ -3,6 +3,7 @@ import creatorRoutes from './creatorRoutes.js';
 import contentRoutes from './contentRoutes.js';
 import videoRoutes from './videoRoutes.js';
 import analyticsRoutes from './analyticsRoutes.js';
+import aiRoutes from './aiRoutes.js';
 
 const router = Router();
 
@@ -21,5 +22,6 @@ router.use('/creators', creatorRoutes);
 router.use('/content', contentRoutes);
 router.use('/video', videoRoutes);
 router.use('/analytics', analyticsRoutes);
+router.use('/ai', aiRoutes);
 
 export default router;
