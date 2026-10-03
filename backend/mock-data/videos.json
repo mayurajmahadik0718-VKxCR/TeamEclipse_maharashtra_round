@@ -1,0 +1,47 @@
+[
+  {
+    "videoId": "video_001",
+    "creatorId": "creator_001",
+    "contentId": "content_001",
+    "title": "AI in Education - 60s Reel",
+    "status": "completed",
+    "progressPercentage": 100,
+    "aspectRatio": "9:16",
+    "durationSeconds": 58,
+    "scenes": [
+      {
+        "sceneNumber": 1,
+        "timestamp": "0:00 - 0:03",
+        "narration": "Stop studying 8 hours a day. Here is how AI actually helps you learn 3x faster without burning out!",
+        "visualPrompt": "Close up desk, glowing holographic UI showing study plan",
+        "renderedClipUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800"
+      },
+      {
+        "sceneNumber": 2,
+        "timestamp": "0:03 - 0:15",
+        "narration": "Step 1: Feed your lecture slides into an AI tutor and ask for 5 practice questions.",
+        "visualPrompt": "Screen recording UI showing PDF drop and instantaneous flashcard breakdown",
+        "renderedClipUrl": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800"
+      },
+      {
+        "sceneNumber": 3,
+        "timestamp": "0:15 - 0:30",
+        "narration": "Step 2: Use voice mode to explain the concept back.",
+        "visualPrompt": "Audio waveform animation pulsating with subtle neon glow",
+        "renderedClipUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800"
+      },
+      {
+        "sceneNumber": 4,
+        "timestamp": "0:30 - 0:58",
+        "narration": "Step 3: Auto-generate flashcards. Comment STUDY for the templates!",
+        "visualPrompt": "Creator smiling in modern studio with dynamic kinetic typography overlay",
+        "renderedClipUrl": "https://images.unsplash.com/photo-1534972195531-a756b1126f24?w=800"
+      }
+    ],
+    "audioUrl": "https://storage.mockcreatorai.com/audio/video_001_master.mp3",
+    "videoUrl": "https://storage.mockcreatorai.com/videos/video_001_final.mp4",
+    "thumbnailUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400",
+    "createdAt": "2026-10-02T15:00:00.000Z",
+    "completedAt": "2026-10-02T15:02:15.000Z"
+  }
+]

@@ -1,0 +1,43 @@
+[
+  {
+    "contentId": "content_001",
+    "creatorId": "creator_001",
+    "topic": "AI in education",
+    "platform": "instagram",
+    "contentType": "reel",
+    "tone": "friendly",
+    "hook": "Stop studying 8 hours a day. Here is how AI actually helps you learn 3x faster without burning out!",
+    "script": "[0:00-0:03] Hook with split screen of messy notes vs clean AI mind map.\n[0:03-0:15] Step 1: Feed your lecture slides into an AI tutor and ask for 5 practice questions.\n[0:15-0:30] Step 2: Use voice mode to explain the concept back. If you can't explain it, you don't know it.\n[0:30-0:45] Step 3: Auto-generate flashcards for spaced repetition in under 10 seconds.\n[0:45-0:60] CTA: Comment 'STUDY' and I'll send you my exact free prompt templates!",
+    "caption": "Work smarter, not harder 🧠✨ Most students use AI to cheat, but top students use it to practice deeper and remember longer. Save this reel for your next exam session!",
+    "hashtags": [
+      "#AIinEducation",
+      "#StudySmart",
+      "#StudentLife",
+      "#EdTech",
+      "#ProductivityHacks",
+      "#AItools"
+    ],
+    "status": "ready_for_production",
+    "createdAt": "2026-10-02T14:20:00.000Z"
+  },
+  {
+    "contentId": "content_002",
+    "creatorId": "creator_001",
+    "topic": "Top 3 VS Code Extensions for AI Developers",
+    "platform": "youtube",
+    "contentType": "long_video_script",
+    "tone": "friendly",
+    "hook": "If your VS Code still looks like it's from 2020, you are wasting at least 2 hours every single day.",
+    "script": "[Intro] Most developers think installing a chatbot plugin is enough. In this video, we go over 3 game-changing AI extensions that will 10x your coding velocity.\n[Tool 1: Continue.dev] Local LLM integration right in your editor...\n[Tool 2: GitLens AI Assistant] Understand legacy PRs without reading 50 commits...\n[Tool 3: Codeium] Instant autocomplete without subscription limits...\n[Outro] Which one is going into your setup today? Let me know in the comments!",
+    "caption": "Upgrade your developer workflow in 2026 with these essential AI-powered VS Code extensions.",
+    "hashtags": [
+      "#VSCode",
+      "#WebDev",
+      "#CodingTips",
+      "#AItools",
+      "#SoftwareEngineering"
+    ],
+    "status": "published",
+    "createdAt": "2026-10-01T09:15:00.000Z"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id": "creator_001",
+    "name": "Aarav Sharma",
+    "email": "aarav@creatorai.io",
+    "bio": "Tech educator simplifying AI, Python, and developer tools for students and beginners.",
+    "primaryNiche": "AI & Tech Education",
+    "socialHandles": {
+      "youtube": "@AaravTechExplains",
+      "instagram": "@aarav_codes",
+      "twitter": "@aarav_ai",
+      "linkedin": "aaravsharma-tech"
+    },
+    "createdAt": "2026-09-15T08:30:00.000Z"
+  },
+  {
+    "id": "creator_002",
+    "name": "Priya Patel",
+    "email": "priya@creatorai.io",
+    "bio": "Design strategist sharing UX case studies, AI design workflows, and portfolio reviews.",
+    "primaryNiche": "UI/UX & Product Design",
+    "socialHandles": {
+      "youtube": "@PriyaDesigns",
+      "instagram": "@priya.ux",
+      "twitter": "@priya_design",
+      "linkedin": "priyapatel-ux"
+    },
+    "createdAt": "2026-09-20T11:15:00.000Z"
+  }
+]

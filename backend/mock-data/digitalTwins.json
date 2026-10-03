@@ -1,0 +1,124 @@
+[
+  {
+    "twinId": "twin_001",
+    "creatorId": "creator_001",
+    "creatorName": "Aarav Sharma",
+    "niche": "AI & Tech Education",
+    "targetAudience": {
+      "demographic": "College students, junior software developers, tech career switchers",
+      "painPoints": [
+        "Overwhelmed by AI jargon",
+        "Struggling to find hands-on AI projects",
+        "Needs fast tutorials under 60 seconds"
+      ],
+      "skillLevel": "Beginner to Intermediate"
+    },
+    "tone": {
+      "primary": "friendly",
+      "attributes": [
+        "encouraging",
+        "practical",
+        "hype-free",
+        "humorous"
+      ]
+    },
+    "preferredPlatforms": [
+      "instagram",
+      "youtube",
+      "linkedin",
+      "x"
+    ],
+    "contentStyle": {
+      "hookStyle": "Curiosity gap + immediate visual demonstration",
+      "pacing": "Fast, high energy first 3 seconds, concise step-by-step breakdown",
+      "visualAesthetics": "Dark mode IDE, vibrant cyan/violet highlights, minimalist overlays",
+      "signaturePhrases": [
+        "Let's build this in 60 seconds!",
+        "No fluff, just code."
+      ]
+    },
+    "interests": [
+      "Generative AI",
+      "Prompt Engineering",
+      "Open Source Developer Tools",
+      "Productivity Apps"
+    ],
+    "preferences": {
+      "emojiDensity": "moderate",
+      "defaultVideoFormat": "9:16 vertical reel",
+      "callToAction": "Drop a comment with 'BUILD' for the starter code",
+      "hashtagStrategy": "5 targeted niche tags + 2 high-volume tech tags"
+    },
+    "pastContentReference": [
+      {
+        "title": "Build a RAG app in 5 minutes",
+        "engagementRate": "8.4%",
+        "bestPerformingPlatform": "instagram"
+      },
+      {
+        "title": "Top 3 VS Code extensions for 2026",
+        "engagementRate": "11.2%",
+        "bestPerformingPlatform": "youtube"
+      }
+    ],
+    "lastUpdated": "2026-10-03T11:30:00.000Z"
+  },
+  {
+    "twinId": "twin_002",
+    "creatorId": "creator_002",
+    "creatorName": "Priya Patel",
+    "niche": "UI/UX & Product Design",
+    "targetAudience": {
+      "demographic": "UI/UX designers, product managers, indie hackers",
+      "painPoints": [
+        "Unclear design-to-code handoff",
+        "Slow Figma prototyping workflows",
+        "Difficulty creating cohesive design systems"
+      ],
+      "skillLevel": "Intermediate"
+    },
+    "tone": {
+      "primary": "inspiring",
+      "attributes": [
+        "analytical",
+        "polished",
+        "empathetic",
+        "detail-oriented"
+      ]
+    },
+    "preferredPlatforms": [
+      "linkedin",
+      "instagram",
+      "youtube"
+    ],
+    "contentStyle": {
+      "hookStyle": "Before vs After redesign critique",
+      "pacing": "Deliberate, aesthetic b-roll, high-fidelity visual zooms",
+      "visualAesthetics": "Pastel gradients, clean Figma canvas, minimalist typography",
+      "signaturePhrases": [
+        "Good design is invisible, great design is unforgettable.",
+        "Here is why this redesign works."
+      ]
+    },
+    "interests": [
+      "Design Systems",
+      "AI in Figma",
+      "Micro-interactions",
+      "Accessibility (a11y)"
+    ],
+    "preferences": {
+      "emojiDensity": "minimal",
+      "defaultVideoFormat": "16:9 tutorial / 9:16 carousel",
+      "callToAction": "Save this checklist for your next client project",
+      "hashtagStrategy": "Figma and UX focused tags"
+    },
+    "pastContentReference": [
+      {
+        "title": "How I redesigned Spotify's playlist UI",
+        "engagementRate": "14.1%",
+        "bestPerformingPlatform": "linkedin"
+      }
+    ],
+    "lastUpdated": "2026-10-03T11:45:00.000Z"
+  }
+]
