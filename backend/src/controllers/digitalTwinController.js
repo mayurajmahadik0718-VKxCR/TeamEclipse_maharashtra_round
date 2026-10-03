@@ -1,10 +1,10 @@
 import { creatorService } from '../services/creatorService.js';
 
 export const digitalTwinController = {
-  getDigitalTwin: (req, res, next) => {
+  getDigitalTwin: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const twin = creatorService.getDigitalTwin(id);
+      const twin = await creatorService.getDigitalTwin(id);
 
       if (!twin) {
         return res.status(404).json({

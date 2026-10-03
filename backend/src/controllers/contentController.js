@@ -1,7 +1,7 @@
 import { contentService } from '../services/contentService.js';
 
 export const contentController = {
-  generateContent: (req, res, next) => {
+  generateContent: async (req, res, next) => {
     try {
       const { creatorId, topic, platform, contentType, tone } = req.body;
 
@@ -13,7 +13,13 @@ export const contentController = {
         });
       }
 
-      const generated = contentService.generate({ creatorId, topic, platform, contentType, tone });
+      const generated = await contentService.generate({
+        creatorId,
+        topic,
+        platform,
+        contentType,
+        tone,
+      });
 
       return res.status(201).json({
         success: true,
@@ -29,10 +35,10 @@ export const contentController = {
     }
   },
 
-  getContentById: (req, res, next) => {
+  getContentById: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const content = contentService.getById(id);
+      const content = await contentService.getById(id);
 
       if (!content) {
         return res.status(404).json({

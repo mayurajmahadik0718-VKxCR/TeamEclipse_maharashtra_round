@@ -1,9 +1,17 @@
 import { videoService } from '../services/videoService.js';
 
 export const videoController = {
-  generateVideo: (req, res, next) => {
+  generateVideo: async (req, res, next) => {
     try {
-      const { creatorId, contentId, title, script, aspectRatio, visualStyle, voiceProfile } = req.body;
+      const {
+        creatorId,
+        contentId,
+        title,
+        script,
+        aspectRatio,
+        visualStyle,
+        voiceProfile,
+      } = req.body;
 
       if (!creatorId || !title || !script) {
         return res.status(400).json({
@@ -13,7 +21,7 @@ export const videoController = {
         });
       }
 
-      const video = videoService.generate({
+      const video = await videoService.generate({
         creatorId,
         contentId,
         title,
@@ -34,10 +42,10 @@ export const videoController = {
     }
   },
 
-  getVideoById: (req, res, next) => {
+  getVideoById: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const video = videoService.getById(id);
+      const video = await videoService.getById(id);
 
       if (!video) {
         return res.status(404).json({

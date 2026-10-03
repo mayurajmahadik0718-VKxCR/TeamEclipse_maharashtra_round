@@ -1,47 +1,88 @@
-import { loadMockData } from '../utils/dataLoader.js';
-import { creatorService } from './creatorService.js';
+import { supabase } from '../config/supabase.js';
 
-let contents = loadMockData('content.json');
+const mapContent = (content) => ({
+  contentId: content.id,
+  creatorId: content.creator_id,
+  topic: content.topic,
+  platform: content.platform,
+  contentType: content.content_type,
+  hook: content.hook || '',
+  script: content.script || '',
+  caption: content.caption || '',
+  hashtags: content.hashtags || [],
+  createdAt: content.created_at,
+});
 
 export const contentService = {
-  getById: (id) => {
-    return contents.find((c) => c.contentId === id);
+  getById: async (id) => {
+    const { data, error } = await supabase
+      .from('content')
+      .select('*')
+      .eq('id', id)
+      .maybeSingle();
+
+    if (error) throw error;
+
+    return data ? mapContent(data) : null;
   },
 
-  getAll: () => {
-    return contents;
+  getAll: async () => {
+    const { data, error } = await supabase
+      .from('content')
+      .select('*')
+      .order('created_at', { ascending: true });
+
+    if (error) throw error;
+
+    return data.map(mapContent);
   },
 
-  generate: ({ creatorId, topic, platform, contentType, tone }) => {
-    const twin = creatorService.getDigitalTwin(creatorId);
-    const effectiveTone = tone || twin?.tone?.primary || 'friendly';
-    const creatorName = twin?.creatorName || 'Creator';
+  generate: async ({ creatorId, topic, platform, contentType, tone }) => {
+    const { data: twin, error: twinError } = await supabase
+      .from('digital_twins')
+      .select('*')
+      .eq('creator_id', creatorId)
+      .maybeSingle();
 
-    const newContentId = `content_${String(contents.length + 1).padStart(3, '0')}`;
+    if (twinError) throw twinError;
 
-    // Realistic generation tailored to inputs
+    const effectiveTone =
+      tone ||
+      twin?.tone_details?.primary ||
+      twin?.tone ||
+      'friendly';
+
+    const creatorName = twin?.creator_name || 'Creator';
+
     const newContent = {
-      contentId: newContentId,
-      creatorId,
+      creator_id: creatorId,
       topic,
       platform,
-      contentType,
-      tone: effectiveTone,
-      hook: `Stop making this common mistake with ${topic}! Here is what actually works in 2026.`,
-      script: `[0:00 - 0:03] Quick visual hook highlighting ${topic}.\n[0:03 - 0:20] The #1 reason most creators and pros struggle with this.\n[0:20 - 0:45] The 3-step action plan to master ${topic} starting today.\n[0:45 - 0:60] Summary & call to action tailored for ${platform}.`,
-      caption: `Master ${topic} with this breakdown by ${creatorName} 🚀 Drop your questions below and save this for reference!`,
+      content_type: contentType,
+      hook: `Stop making this common mistake with ${topic}! Here is what actually works.`,
+      script: `[0:00 - 0:03] Quick visual hook highlighting ${topic}.\n[0:03 - 0:20] The #1 reason people struggle with this.\n[0:20 - 0:45] The 3-step action plan to master ${topic}.\n[0:45 - 0:60] Summary and call to action for ${platform}.`,
+      caption: `Master ${topic} with this breakdown by ${creatorName}. Drop your questions below and save this for reference!`,
       hashtags: [
         `#${topic.replace(/\s+/g, '')}`,
-        `#${platform.charAt(0).toUpperCase() + platform.slice(1)}Creator`,
-        `#CreatorAI`,
-        `#GrowthHacks`,
-        `#Mastery`
+        `#${platform}Creator`,
+        '#CreatorAI',
+        '#GrowthHacks',
+        '#Mastery',
       ],
-      status: 'ready_for_production',
-      createdAt: new Date().toISOString(),
     };
 
-    contents.push(newContent);
-    return newContent;
+    const { data: content, error } = await supabase
+      .from('content')
+      .insert(newContent)
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    return {
+      ...mapContent(content),
+      tone: effectiveTone,
+      status: 'ready_for_production',
+    };
   },
 };
