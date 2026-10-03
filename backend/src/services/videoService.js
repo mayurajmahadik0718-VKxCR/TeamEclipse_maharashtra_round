@@ -1,60 +1,70 @@
-import { loadMockData } from '../utils/dataLoader.js';
+import { supabase } from '../config/supabase.js';
 
-let videos = loadMockData('videos.json');
+const mapVideo = (video) => ({
+  videoId: video.id,
+  creatorId: video.creator_id,
+  contentId: video.content_id,
+  status: video.status,
+  videoUrl: video.video_url,
+  createdAt: video.created_at,
+});
 
 export const videoService = {
-  getById: (id) => {
-    return videos.find((v) => v.videoId === id);
+  getById: async (id) => {
+    const { data, error } = await supabase
+      .from('videos')
+      .select('*')
+      .eq('id', id)
+      .maybeSingle();
+
+    if (error) throw error;
+
+    return data ? mapVideo(data) : null;
   },
 
-  getAll: () => {
-    return videos;
+  getAll: async () => {
+    const { data, error } = await supabase
+      .from('videos')
+      .select('*')
+      .order('created_at', { ascending: true });
+
+    if (error) throw error;
+
+    return data.map(mapVideo);
   },
 
-  generate: ({ creatorId, contentId, title, script, aspectRatio = '9:16', visualStyle = 'minimal_tech', voiceProfile }) => {
-    const newVideoId = `video_${String(videos.length + 1).padStart(3, '0')}`;
+  generate: async ({
+    creatorId,
+    contentId,
+    title,
+    script,
+    aspectRatio = '9:16',
+    visualStyle = 'minimal_tech',
+    voiceProfile,
+  }) => {
+    const { data: video, error } = await supabase
+      .from('videos')
+      .insert({
+        creator_id: creatorId,
+        content_id: contentId || null,
+        status: 'processing',
+        video_url: null,
+      })
+      .select()
+      .single();
 
-    const newVideo = {
-      videoId: newVideoId,
-      creatorId,
-      contentId: contentId || null,
+    if (error) throw error;
+
+    return {
+      ...mapVideo(video),
       title,
-      status: 'processing',
-      progressPercentage: 35,
+      script,
       aspectRatio,
-      estimatedDurationSeconds: 50,
       visualStyle,
       voiceProfile: voiceProfile || 'conversational_neutral',
-      scenes: [
-        {
-          sceneNumber: 1,
-          timestamp: '0:00 - 0:05',
-          narration: script.slice(0, 80) + '...',
-          visualPrompt: `High definition opening shot, visual style ${visualStyle}, captivating focus on topic ${title}`,
-          bRollKeywords: ['intro', 'technology', 'cinematic']
-        },
-        {
-          sceneNumber: 2,
-          timestamp: '0:05 - 0:25',
-          narration: 'Deep dive breakdown and step-by-step walk through.',
-          visualPrompt: `Dynamic visual infographic with smooth animations and neon accents`,
-          bRollKeywords: ['infographic', 'breakdown', 'workflow']
-        },
-        {
-          sceneNumber: 3,
-          timestamp: '0:25 - 0:50',
-          narration: 'Concluding takeaway and call-to-action.',
-          visualPrompt: `Direct-to-camera closing shot with floating follow button badge`,
-          bRollKeywords: ['conclusion', 'call-to-action']
-        }
-      ],
-      audioUrl: `https://storage.mockcreatorai.com/audio/${newVideoId}_preview.mp3`,
-      videoUrl: null,
-      thumbnailUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400',
-      createdAt: new Date().toISOString(),
+      progressPercentage: 35,
+      estimatedDurationSeconds: 50,
+      message: 'Video generation storyboard initiated',
     };
-
-    videos.push(newVideo);
-    return newVideo;
   },
 };

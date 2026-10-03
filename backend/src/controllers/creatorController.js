@@ -1,9 +1,10 @@
 import { creatorService } from '../services/creatorService.js';
 
 export const creatorController = {
-  createCreator: (req, res, next) => {
+  createCreator: async (req, res, next) => {
     try {
       const { name, email, bio, primaryNiche, socialHandles } = req.body;
+
       if (!name || !email || !primaryNiche) {
         return res.status(400).json({
           success: false,
@@ -12,7 +13,14 @@ export const creatorController = {
         });
       }
 
-      const creator = creatorService.create({ name, email, bio, primaryNiche, socialHandles });
+      const creator = await creatorService.create({
+        name,
+        email,
+        bio,
+        primaryNiche,
+        socialHandles,
+      });
+
       return res.status(201).json({
         success: true,
         message: 'Creator profile created successfully',
@@ -23,10 +31,10 @@ export const creatorController = {
     }
   },
 
-  getCreatorById: (req, res, next) => {
+  getCreatorById: async (req, res, next) => {
     try {
       const { id } = req.params;
-      const creator = creatorService.getById(id);
+      const creator = await creatorService.getById(id);
 
       if (!creator) {
         return res.status(404).json({
@@ -44,9 +52,10 @@ export const creatorController = {
     }
   },
 
-  getAllCreators: (req, res, next) => {
+  getAllCreators: async (req, res, next) => {
     try {
-      const creators = creatorService.getAll();
+      const creators = await creatorService.getAll();
+
       return res.status(200).json({
         success: true,
         count: creators.length,

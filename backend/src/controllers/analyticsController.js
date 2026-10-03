@@ -1,7 +1,7 @@
 import { analyticsService } from '../services/analyticsService.js';
 
 export const analyticsController = {
-  getAnalyticsByCreatorId: (req, res, next) => {
+  getAnalyticsByCreatorId: async (req, res, next) => {
     try {
       const { creatorId } = req.params;
       const { period = '30d' } = req.query;
@@ -14,7 +14,10 @@ export const analyticsController = {
         });
       }
 
-      const analytics = analyticsService.getByCreatorId(creatorId, period);
+      const analytics = await analyticsService.getByCreatorId(
+        creatorId,
+        period
+      );
 
       return res.status(200).json({
         success: true,
