@@ -15,8 +15,6 @@ export const HealthScoreCard = ({
     <div
       className="card card-lift stagger-item"
       style={{
-        background: 'linear-gradient(135deg, rgba(24, 32, 50, 0.75) 0%, rgba(17, 23, 38, 0.82) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -117,15 +115,15 @@ export const HealthScoreCard = ({
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '12px', textAlign: 'center' }}>
-        <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '8px 10px', borderRadius: '8px' }}>
+        <div className="glass-inner-card" style={{ padding: '10px' }}>
           <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block' }}>Consistency</span>
           <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>{metrics.consistency}</strong>
         </div>
-        <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '8px 10px', borderRadius: '8px' }}>
+        <div className="glass-inner-card" style={{ padding: '10px' }}>
           <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block' }}>Retention</span>
           <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>{metrics.retention}</strong>
         </div>
-        <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '8px 10px', borderRadius: '8px' }}>
+        <div className="glass-inner-card" style={{ padding: '10px' }}>
           <span style={{ fontSize: '11px', color: 'var(--text-muted)', display: 'block' }}>Platform Synergy</span>
           <strong style={{ fontSize: '14px', color: 'var(--text-primary)' }}>{metrics.platformSynergy}</strong>
         </div>

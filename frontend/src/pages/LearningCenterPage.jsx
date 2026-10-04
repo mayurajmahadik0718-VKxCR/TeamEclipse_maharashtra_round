@@ -153,10 +153,8 @@ export const LearningCenterPage = ({ creator }) => {
               {patterns.map((pat) => (
                 <div
                   key={pat.id}
+                  className="glass-inner-card"
                   style={{
-                    backgroundColor: 'rgba(10, 13, 20, 0.5)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
                     padding: '18px',
                     display: 'flex',
                     flexDirection: 'column',

@@ -105,10 +105,8 @@ export const ContentOpportunitiesPage = ({ creator }) => {
             {/* Reasoning Data Object from AI Service */}
             {selectedReasoning.reasoningData && (
               <div
+                className="glass-inner-card"
                 style={{
-                  backgroundColor: '#182032',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '12px',
                   padding: '18px',
                   marginBottom: '20px',
                 }}
@@ -118,19 +116,19 @@ export const ContentOpportunitiesPage = ({ creator }) => {
                 </h4>
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '13px' }}>
-                  <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '10px', borderRadius: '8px' }}>
+                  <div className="glass-inner-card" style={{ padding: '10px' }}>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '11px' }}>Trend Velocity</span>
                     <strong style={{ color: '#fff', fontSize: '15px' }}>{selectedReasoning.reasoningData.trendScore}/10</strong>
                   </div>
-                  <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '10px', borderRadius: '8px' }}>
+                  <div className="glass-inner-card" style={{ padding: '10px' }}>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '11px' }}>Urgency Window</span>
                     <strong style={{ color: '#f59e0b', fontSize: '15px' }}>{selectedReasoning.reasoningData.urgency}</strong>
                   </div>
-                  <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '10px', borderRadius: '8px' }}>
+                  <div className="glass-inner-card" style={{ padding: '10px' }}>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '11px' }}>Reach Multiplier</span>
                     <strong style={{ color: '#34d399', fontSize: '15px' }}>{selectedReasoning.reasoningData.estimatedReachMultiplier}</strong>
                   </div>
-                  <div style={{ background: 'rgba(10, 13, 20, 0.4)', padding: '10px', borderRadius: '8px' }}>
+                  <div className="glass-inner-card" style={{ padding: '10px' }}>
                     <span style={{ color: 'var(--text-muted)', display: 'block', fontSize: '11px' }}>Saturation</span>
                     <strong style={{ color: '#818cf8', fontSize: '15px' }}>{selectedReasoning.reasoningData.competitorSaturation}</strong>
                   </div>

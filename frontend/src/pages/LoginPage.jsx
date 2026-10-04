@@ -318,9 +318,7 @@ export const LoginPage = () => {
             <div
               className="card card-lift"
               style={{
-                padding: '12px 14px',
-                backgroundColor: 'rgba(22, 29, 46, 0.65)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '14px 16px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
@@ -335,9 +333,7 @@ export const LoginPage = () => {
             <div
               className="card card-lift"
               style={{
-                padding: '12px 14px',
-                backgroundColor: 'rgba(22, 29, 46, 0.65)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '14px 16px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
@@ -352,9 +348,7 @@ export const LoginPage = () => {
             <div
               className="card card-lift"
               style={{
-                padding: '12px 14px',
-                backgroundColor: 'rgba(22, 29, 46, 0.65)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '14px 16px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
@@ -369,9 +363,7 @@ export const LoginPage = () => {
             <div
               className="card card-lift"
               style={{
-                padding: '12px 14px',
-                backgroundColor: 'rgba(22, 29, 46, 0.65)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
+                padding: '14px 16px',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>

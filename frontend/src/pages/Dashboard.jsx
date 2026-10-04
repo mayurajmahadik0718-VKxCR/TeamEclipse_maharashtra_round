@@ -135,8 +135,6 @@ export const Dashboard = ({ creator, digitalTwin }) => {
         <div
           className="card card-lift stagger-item"
           style={{
-            background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.08) 100%)',
-            borderColor: 'rgba(99, 102, 241, 0.3)',
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-between',
@@ -319,14 +317,12 @@ export const Dashboard = ({ creator, digitalTwin }) => {
               {recentContent.slice(0, 4).map((item) => (
                 <div
                   key={item.contentId}
+                  className="glass-inner-card"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '10px 12px',
-                    borderRadius: '8px',
-                    backgroundColor: 'rgba(10, 13, 20, 0.4)',
-                    border: '1px solid var(--border-color)',
                   }}
                 >
                   <div style={{ overflow: 'hidden', paddingRight: '10px' }}>

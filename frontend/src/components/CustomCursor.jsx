@@ -36,7 +36,10 @@ export const CustomCursor = () => {
         target.closest('input') ||
         target.closest('select') ||
         target.closest('textarea') ||
+        target.closest('.card') ||
         target.closest('.card-lift') ||
+        target.closest('.glass-inner-card') ||
+        target.closest('.glass-card-elevated') ||
         target.closest('.tab-btn') ||
         target.closest('.interactive-chip') ||
         target.getAttribute('role') === 'button'
@@ -81,14 +84,16 @@ export const CustomCursor = () => {
           position: 'fixed',
           top: position.y,
           left: position.x,
-          width: isPointer ? '64px' : '44px',
-          height: isPointer ? '64px' : '44px',
+          width: isPointer ? '68px' : '44px',
+          height: isPointer ? '68px' : '44px',
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, rgba(168, 85, 247, 0.08) 50%, transparent 70%)',
+          background: isPointer
+            ? 'radial-gradient(circle, rgba(16, 185, 129, 0.22) 0%, rgba(99, 102, 241, 0.12) 50%, transparent 70%)'
+            : 'radial-gradient(circle, rgba(52, 211, 153, 0.12) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           zIndex: 99998,
-          transition: 'width 0.2s ease-out, height 0.2s ease-out',
+          transition: 'width 0.2s ease-out, height 0.2s ease-out, background 0.2s ease',
           filter: 'blur(3px)',
         }}
         aria-hidden="true"
@@ -101,17 +106,17 @@ export const CustomCursor = () => {
           position: 'fixed',
           top: position.y,
           left: position.x,
-          width: isPointer ? '42px' : '30px',
-          height: isPointer ? '42px' : '30px',
+          width: isPointer ? '44px' : '30px',
+          height: isPointer ? '44px' : '30px',
           borderRadius: '50%',
           border: isPointer
-            ? '1.5px solid rgba(129, 140, 248, 0.9)'
-            : '1.5px solid rgba(99, 102, 241, 0.65)',
+            ? '1.5px solid rgba(52, 211, 153, 0.95)'
+            : '1.5px solid rgba(129, 140, 248, 0.7)',
           backgroundColor: isPointer
-            ? 'rgba(99, 102, 241, 0.18)'
+            ? 'rgba(16, 185, 129, 0.16)'
             : 'rgba(99, 102, 241, 0.06)',
           boxShadow: isPointer
-            ? '0 0 18px rgba(99, 102, 241, 0.55)'
+            ? '0 0 20px rgba(52, 211, 153, 0.55), 0 0 10px rgba(99, 102, 241, 0.4)'
             : '0 0 8px rgba(99, 102, 241, 0.25)',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
@@ -131,11 +136,12 @@ export const CustomCursor = () => {
           width: '5px',
           height: '5px',
           borderRadius: '50%',
-          backgroundColor: '#818cf8',
-          boxShadow: '0 0 6px #6366f1',
+          backgroundColor: isPointer ? '#34d399' : '#818cf8',
+          boxShadow: isPointer ? '0 0 8px #10b981' : '0 0 6px #6366f1',
           transform: 'translate(-50%, -50%)',
           pointerEvents: 'none',
           zIndex: 99999,
+          transition: 'background-color 0.15s ease, box-shadow 0.15s ease',
         }}
         aria-hidden="true"
       />

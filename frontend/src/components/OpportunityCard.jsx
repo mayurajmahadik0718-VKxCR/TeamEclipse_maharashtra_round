@@ -18,7 +18,6 @@ export const OpportunityCard = ({
         flexDirection: 'column',
         justifyContent: 'space-between',
         position: 'relative',
-        background: 'linear-gradient(180deg, rgba(24, 32, 50, 0.72) 0%, rgba(17, 23, 38, 0.8) 100%)',
       }}
     >
       <div>
@@ -44,14 +43,12 @@ export const OpportunityCard = ({
 
         {/* Metrics Grid */}
         <div
+          className="glass-inner-card"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
             gap: '8px',
-            backgroundColor: 'rgba(10, 13, 20, 0.5)',
             padding: '12px',
-            borderRadius: '10px',
-            border: '1px solid var(--border-color)',
             marginBottom: '16px',
             textAlign: 'center',
           }}

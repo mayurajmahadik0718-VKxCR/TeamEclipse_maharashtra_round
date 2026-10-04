@@ -236,7 +236,7 @@ export const ContentAnalyzerPage = ({ creator }) => {
               </div>
 
               {/* Strengths */}
-              <div className="card" style={{ borderLeft: '4px solid #10b981' }}>
+              <div className="card card-lift" style={{ borderLeft: '4px solid #10b981' }}>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#34d399', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <CheckCircle2 size={16} /> Key Strengths
                 </h4>
@@ -251,7 +251,7 @@ export const ContentAnalyzerPage = ({ creator }) => {
               </div>
 
               {/* Weaknesses */}
-              <div className="card" style={{ borderLeft: '4px solid #fbbf24' }}>
+              <div className="card card-lift" style={{ borderLeft: '4px solid #fbbf24' }}>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#fbbf24', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <AlertTriangle size={16} /> Identified Weaknesses
                 </h4>
@@ -266,7 +266,7 @@ export const ContentAnalyzerPage = ({ creator }) => {
               </div>
 
               {/* Suggestions */}
-              <div className="card" style={{ borderLeft: '4px solid #6366f1' }}>
+              <div className="card card-lift" style={{ borderLeft: '4px solid #6366f1' }}>
                 <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#818cf8', marginBottom: '10px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <Lightbulb size={16} /> Actionable AI Suggestions
                 </h4>

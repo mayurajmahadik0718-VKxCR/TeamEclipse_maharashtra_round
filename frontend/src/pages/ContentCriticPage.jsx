@@ -196,7 +196,7 @@ export const ContentCriticPage = ({ creator }) => {
           {/* Tri-Column Insights: Strengths, Problems, Suggestions */}
           <div className="grid-3">
             {/* Strengths */}
-            <div className="card" style={{ borderLeft: '4px solid #10b981' }}>
+            <div className="card card-lift" style={{ borderLeft: '4px solid #10b981' }}>
               <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#34d399', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <CheckCircle2 size={16} /> Key Strengths
               </h4>
@@ -211,7 +211,7 @@ export const ContentCriticPage = ({ creator }) => {
             </div>
 
             {/* Problems */}
-            <div className="card" style={{ borderLeft: '4px solid #f43f5e' }}>
+            <div className="card card-lift" style={{ borderLeft: '4px solid #f43f5e' }}>
               <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#fb7185', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <AlertTriangle size={16} /> Detected Problems
               </h4>
@@ -226,7 +226,7 @@ export const ContentCriticPage = ({ creator }) => {
             </div>
 
             {/* Suggestions */}
-            <div className="card" style={{ borderLeft: '4px solid #6366f1' }}>
+            <div className="card card-lift" style={{ borderLeft: '4px solid #6366f1' }}>
               <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#818cf8', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
                 <Lightbulb size={16} /> Suggestions to 10x
               </h4>

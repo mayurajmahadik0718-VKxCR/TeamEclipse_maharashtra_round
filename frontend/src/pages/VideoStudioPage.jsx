@@ -285,10 +285,8 @@ export const VideoStudioPage = ({ creator }) => {
               {videoJob?.scenes?.map((scene) => (
                 <div
                   key={scene.sceneNumber}
+                  className="glass-inner-card"
                   style={{
-                    backgroundColor: 'rgba(10, 13, 20, 0.5)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '12px',
                     padding: '16px',
                     display: 'grid',
                     gridTemplateColumns: '80px 1fr 180px',
@@ -381,10 +379,8 @@ export const VideoStudioPage = ({ creator }) => {
             {clips.map((clip) => (
               <div
                 key={clip.id}
+                className="glass-inner-card card-lift"
                 style={{
-                  backgroundColor: 'rgba(10, 13, 20, 0.5)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '12px',
                   padding: '16px',
                   display: 'flex',
                   flexDirection: 'column',

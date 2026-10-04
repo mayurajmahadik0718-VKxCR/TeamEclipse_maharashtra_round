@@ -291,14 +291,12 @@ export const SettingsPage = ({ creator, digitalTwin, onRefresh }) => {
               {Object.keys(platforms).map((platKey) => (
                 <div
                   key={platKey}
+                  className="glass-inner-card"
                   style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '12px 16px',
-                    backgroundColor: 'rgba(10, 13, 20, 0.4)',
-                    border: '1px solid var(--border-color)',
-                    borderRadius: '8px',
                   }}
                 >
                   <span style={{ fontSize: '14px', fontWeight: 600, textTransform: 'capitalize' }}>
@@ -358,14 +356,12 @@ export const SettingsPage = ({ creator, digitalTwin, onRefresh }) => {
           {activeTab === 'notifications' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
               <div
+                className="glass-inner-card"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '12px 16px',
-                  backgroundColor: 'rgba(10, 13, 20, 0.4)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '8px',
                 }}
               >
                 <div>
@@ -383,14 +379,12 @@ export const SettingsPage = ({ creator, digitalTwin, onRefresh }) => {
               </div>
 
               <div
+                className="glass-inner-card"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
                   padding: '12px 16px',
-                  backgroundColor: 'rgba(10, 13, 20, 0.4)',
-                  border: '1px solid var(--border-color)',
-                  borderRadius: '8px',
                 }}
               >
                 <div>

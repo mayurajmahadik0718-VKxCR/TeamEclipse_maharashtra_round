@@ -12,14 +12,7 @@ const steps = [
 
 export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
   return (
-    <div
-      className="card"
-      style={{
-        background: 'linear-gradient(135deg, rgba(17, 23, 38, 0.72) 0%, rgba(24, 32, 50, 0.68) 100%)',
-        border: '1px solid rgba(255, 255, 255, 0.08)',
-        padding: '24px',
-      }}
-    >
+    <div className="card" style={{ padding: '24px' }}>
       <div style={{ marginBottom: '18px' }}>
         <span style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.08em', color: '#818cf8', fontWeight: 800 }}>
           Autonomous Intelligence Engine
@@ -45,17 +38,17 @@ export const WorkflowLoop = ({ currentStage = 'RECOMMEND' }) => {
           return (
             <div
               key={step.key}
-              className={`stagger-item ${isCurrent ? 'active-loop-stage' : ''}`}
+              className={`glass-inner-card stagger-item ${isCurrent ? 'active-loop-stage' : ''}`}
               style={{
-                backgroundColor: isCurrent ? 'rgba(99, 102, 241, 0.15)' : 'rgba(10, 13, 20, 0.5)',
-                border: `1px solid ${isCurrent ? 'rgba(99, 102, 241, 0.6)' : 'var(--border-color)'}`,
-                borderRadius: '12px',
+                backgroundColor: isCurrent ? 'rgba(16, 185, 129, 0.16)' : undefined,
+                borderColor: isCurrent ? 'rgba(52, 211, 153, 0.75)' : undefined,
+                boxShadow: isCurrent ? '0 0 20px rgba(16, 185, 129, 0.35)' : undefined,
                 padding: '14px',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '8px',
                 position: 'relative',
-                transition: 'transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease',
+                cursor: 'pointer',
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>

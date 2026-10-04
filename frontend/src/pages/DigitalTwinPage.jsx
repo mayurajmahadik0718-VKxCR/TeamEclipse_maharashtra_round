@@ -118,8 +118,6 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
       <div
         className="card card-lift animate-fade-in-up"
         style={{
-          background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(168, 85, 247, 0.1) 100%)',
-          borderColor: 'rgba(99, 102, 241, 0.35)',
           marginBottom: '24px',
         }}
       >
@@ -290,7 +288,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
 
         <div className="grid-2">
           {/* Best Topics */}
-          <div className="card">
+          <div className="card card-lift">
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
               🔥 Best Performing Topics
             </h4>
@@ -304,7 +302,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
           </div>
 
           {/* Best Formats */}
-          <div className="card">
+          <div className="card card-lift">
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
               📐 Best Performing Formats
             </h4>
@@ -318,7 +316,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
           </div>
 
           {/* Best Hooks */}
-          <div className="card">
+          <div className="card card-lift">
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
               🎣 Best Signature Hooks
             </h4>
@@ -326,13 +324,11 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
               {dna.bestHooks.map((hook, i) => (
                 <li
                   key={i}
+                  className="glass-inner-card"
                   style={{
                     fontSize: '13px',
                     color: '#e2e8f0',
-                    backgroundColor: 'rgba(10, 13, 20, 0.4)',
                     padding: '8px 12px',
-                    borderRadius: '8px',
-                    border: '1px solid var(--border-color)',
                   }}
                 >
                   "{hook}"
@@ -342,7 +338,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
           </div>
 
           {/* Audience Interests */}
-          <div className="card">
+          <div className="card card-lift">
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>
               🎯 Audience Interests & Search Keywords
             </h4>
@@ -356,7 +352,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
           </div>
 
           {/* Successful Patterns */}
-          <div className="card" style={{ borderLeft: '4px solid #10b981' }}>
+          <div className="card card-lift" style={{ borderLeft: '4px solid #10b981' }}>
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#34d399', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <CheckCircle2 size={16} /> Successful Algorithmic Patterns
             </h4>
@@ -371,7 +367,7 @@ export const DigitalTwinPage = ({ digitalTwin, creator, onRefresh }) => {
           </div>
 
           {/* Weak Areas */}
-          <div className="card" style={{ borderLeft: '4px solid #f43f5e' }}>
+          <div className="card card-lift" style={{ borderLeft: '4px solid #f43f5e' }}>
             <h4 style={{ fontSize: '14px', fontWeight: 700, color: '#fb7185', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <AlertTriangle size={16} /> Retention Weak Areas to Avoid
             </h4>

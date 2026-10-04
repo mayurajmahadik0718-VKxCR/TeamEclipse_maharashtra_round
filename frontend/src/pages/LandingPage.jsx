@@ -174,7 +174,7 @@ export const LandingPage = () => {
           </div>
 
           <div className="grid-3 stagger-container">
-            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+            <div className="card card-lift stagger-item">
               <div
                 style={{
                   width: '42px',
@@ -199,7 +199,7 @@ export const LandingPage = () => {
               </p>
             </div>
 
-            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+            <div className="card card-lift stagger-item">
               <div
                 style={{
                   width: '42px',
@@ -224,7 +224,7 @@ export const LandingPage = () => {
               </p>
             </div>
 
-            <div className="card card-lift stagger-item" style={{ backgroundColor: 'rgba(24, 32, 50, 0.85)', backdropFilter: 'blur(10px)' }}>
+            <div className="card card-lift stagger-item">
               <div
                 style={{
                   width: '42px',
