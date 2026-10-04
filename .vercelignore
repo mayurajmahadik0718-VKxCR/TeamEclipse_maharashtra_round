@@ -1,0 +1,10 @@
+# Local environment files are configured in the Vercel project instead.
+backend/.env
+frontend/.env
+.env
+.env.*
+
+# Local install and generated output directories.
+backend/node_modules
+frontend/node_modules
+frontend/dist

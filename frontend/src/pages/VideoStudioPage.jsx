@@ -28,6 +28,9 @@ export const VideoStudioPage = ({ creator }) => {
   const [clips, setClips] = useState([]);
   const [loading, setLoading] = useState(false);
   const [uploadModalOpen, setUploadModalOpen] = useState(false);
+  const [previewClip, setPreviewClip] = useState(null);
+  const [exportedClipIds, setExportedClipIds] = useState([]);
+  const [assetConnectionMessage, setAssetConnectionMessage] = useState('');
   const [newAssetName, setNewAssetName] = useState('');
   const [newAssetType, setNewAssetType] = useState('video');
 
@@ -94,6 +97,36 @@ export const VideoStudioPage = ({ creator }) => {
       setUploadModalOpen(false);
       setNewAssetName('');
     }
+  };
+
+  const handleExportClip = (clip) => {
+    const exportManifest = {
+      clipId: clip.id,
+      title: clip.title,
+      platform: clip.suggestedPlatform,
+      timestamp: clip.timestamp,
+      duration: clip.duration,
+      exportedAt: new Date().toISOString(),
+    };
+    const blob = new Blob([JSON.stringify(exportManifest, null, 2)], { type: 'application/json' });
+    const downloadUrl = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = downloadUrl;
+    link.download = `${clip.title.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase() || 'creatorai-clip'}-export.json`;
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(downloadUrl);
+    setExportedClipIds((ids) => (ids.includes(clip.id) ? ids : [...ids, clip.id]));
+  };
+
+  const handleConnectToScript = (asset) => {
+    setScript((currentScript) => {
+      const reference = `[Attached asset: ${asset.name}]`;
+      return currentScript.includes(reference) ? currentScript : `${currentScript}\n\n${reference}`;
+    });
+    setAssetConnectionMessage(`${asset.name} is attached to the current storyboard draft.`);
+    setActiveTab('generator');
   };
 
   return (
@@ -214,6 +247,23 @@ export const VideoStudioPage = ({ creator }) => {
           <Sparkles size={16} /> Storyboard Generator
         </button>
       </div>
+
+      {assetConnectionMessage && (
+        <div
+          role="status"
+          style={{
+            marginBottom: '16px',
+            padding: '10px 12px',
+            borderRadius: '8px',
+            backgroundColor: 'rgba(16, 185, 129, 0.12)',
+            border: '1px solid rgba(16, 185, 129, 0.3)',
+            color: '#6ee7b7',
+            fontSize: '13px',
+          }}
+        >
+          {assetConnectionMessage}
+        </div>
+      )}
 
       {/* Tab 1: Timeline & AI-Assisted Editing */}
       {activeTab === 'timeline' && (
@@ -360,11 +410,21 @@ export const VideoStudioPage = ({ creator }) => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '8px', paddingTop: '12px', borderTop: '1px solid var(--border-color)' }}>
-                  <button className="btn-secondary" style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }}>
+                  <button
+                    type="button"
+                    onClick={() => setPreviewClip(clip)}
+                    className="btn-secondary"
+                    style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }}
+                  >
                     Preview
                   </button>
-                  <button className="btn-primary" style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }}>
-                    Export Clip
+                  <button
+                    type="button"
+                    onClick={() => handleExportClip(clip)}
+                    className="btn-primary"
+                    style={{ flex: 1, justifyContent: 'center', fontSize: '12px', padding: '6px' }}
+                  >
+                    {exportedClipIds.includes(clip.id) ? 'Exported' : 'Export Clip'}
                   </button>
                 </div>
               </div>
@@ -418,7 +478,12 @@ export const VideoStudioPage = ({ creator }) => {
                     <td>{asset.duration || 'N/A'}</td>
                     <td>{asset.uploadedAt}</td>
                     <td>
-                      <button className="btn-ghost" style={{ fontSize: '12px', padding: '4px 8px' }}>
+                      <button
+                        type="button"
+                        onClick={() => handleConnectToScript(asset)}
+                        className="btn-ghost"
+                        style={{ fontSize: '12px', padding: '4px 8px' }}
+                      >
                         Connect to Script
                       </button>
                     </td>
@@ -509,6 +574,49 @@ export const VideoStudioPage = ({ creator }) => {
       )}
 
       {/* Modal for Ingest Asset */}
+      <Modal
+        isOpen={Boolean(previewClip)}
+        onClose={() => setPreviewClip(null)}
+        title="Clip Preview"
+        maxWidth="520px"
+      >
+        {previewClip && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+            <div
+              style={{
+                minHeight: '180px',
+                borderRadius: '10px',
+                background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.28), rgba(34, 211, 238, 0.16))',
+                border: '1px solid rgba(129, 140, 248, 0.35)',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                color: '#e0e7ff',
+              }}
+            >
+              <Play size={32} />
+              <span style={{ fontSize: '13px', fontWeight: 600 }}>Clip preview metadata</span>
+            </div>
+            <div>
+              <h4 style={{ fontSize: '16px', marginBottom: '6px' }}>{previewClip.title}</h4>
+              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                {previewClip.timestamp} · {previewClip.duration} · {previewClip.suggestedPlatform}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={() => handleExportClip(previewClip)}
+              className="btn-primary"
+              style={{ justifyContent: 'center' }}
+            >
+              Export Clip Manifest
+            </button>
+          </div>
+        )}
+      </Modal>
+
       <Modal
         isOpen={uploadModalOpen}
         onClose={() => setUploadModalOpen(false)}
